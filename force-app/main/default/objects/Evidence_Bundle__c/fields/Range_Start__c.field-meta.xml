@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Range_Start__c</fullName>
+    <label>Range Start</label>
+    <description>Start of the time range of decisions included in the bundle.</description>
+    <inlineHelpText>The earliest decision time covered by this bundle.</inlineHelpText>
+    <type>DateTime</type>
+</CustomField>

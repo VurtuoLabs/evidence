@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>61.0</apiVersion>
+    <description>Autolaunched. Notifies the customer-designated owners that a chain break was detected. In: verificationId, chainKey, position. Out: resultMessage.</description>
+    <environments>Default</environments>
+    <interviewLabel>Evidence Notify Chain Break {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Evidence Notify Chain Break Flow</label>
+    <processType>AutoLaunchedFlow</processType>
+    <status>Active</status>
+    <formulas>
+        <name>Break_Message</name>
+        <dataType>String</dataType>
+        <expression>"Chain break detected on chain " &amp; {!chainKey} &amp; " at position " &amp; TEXT({!position}) &amp; " (verification " &amp; {!verificationId} &amp; "). Investigate before relying on any downstream evidence."</expression>
+    </formulas>
+    <assignments>
+        <name>Set_Result_Message</name>
+        <label>Set Result Message</label>
+        <locationX>176</locationX>
+        <locationY>158</locationY>
+        <assignmentItems>
+            <assignToReference>resultMessage</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Break_Message</elementReference>
+            </value>
+        </assignmentItems>
+    </assignments>
+    <start>
+        <locationX>50</locationX>
+        <locationY>50</locationY>
+        <connector>
+            <targetReference>Set_Result_Message</targetReference>
+        </connector>
+    </start>
+    <variables>
+        <name>verificationId</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>chainKey</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>position</name>
+        <dataType>Number</dataType>
+        <scale>0</scale>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>resultMessage</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+</Flow>

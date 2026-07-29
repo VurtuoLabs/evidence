@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Decision_Number__c</fullName>
+    <label>Decision Number</label>
+    <description>Human-readable identifier for the decision, cited in bundles and audit correspondence. CONTRACT.md sec 4.</description>
+    <inlineHelpText>The reference an auditor quotes when asking about this decision.</inlineHelpText>
+    <type>AutoNumber</type>
+    <displayFormat>D-{00000}</displayFormat>
+    <externalId>false</externalId>
+    <trackHistory>false</trackHistory>
+</CustomField>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Canonical_Version__c</fullName>
+    <label>Canonical Version</label>
+    <description>Version of the canonicalization scheme used to build the hashed payload. The verifier dispatches on this.</description>
+    <type>Number</type>
+    <precision>4</precision>
+    <scale>0</scale>
+</CustomField>

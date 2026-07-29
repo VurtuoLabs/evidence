@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Option_Type__c</fullName>
+    <label>Option Type</label>
+    <description>The kind of option considered.</description>
+    <inlineHelpText>Whether the option was a Topic, an Action, or a Route.</inlineHelpText>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Topic</fullName>
+                <default>false</default>
+                <label>Topic</label>
+            </value>
+            <value>
+                <fullName>Action</fullName>
+                <default>false</default>
+                <label>Action</label>
+            </value>
+            <value>
+                <fullName>Route</fullName>
+                <default>false</default>
+                <label>Route</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

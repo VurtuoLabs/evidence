@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Autonomy_Level__c</fullName>
+    <label>Autonomy Level</label>
+    <description>How much human involvement the decision had. Evidence's signature metric.</description>
+    <inlineHelpText>Autonomous means the agent acted alone; Human_Approved means a person approved before action; Escalated means it was handed off to a human.</inlineHelpText>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Autonomous</fullName>
+                <default>false</default>
+                <label>Autonomous</label>
+            </value>
+            <value>
+                <fullName>Human_Approved</fullName>
+                <default>false</default>
+                <label>Human Approved</label>
+            </value>
+            <value>
+                <fullName>Escalated</fullName>
+                <default>false</default>
+                <label>Escalated</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

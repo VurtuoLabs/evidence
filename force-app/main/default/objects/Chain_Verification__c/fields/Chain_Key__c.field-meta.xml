@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Chain_Key__c</fullName>
+    <label>Chain Key</label>
+    <description>The chain this verification covers (&lt;orgKey&gt;:&lt;agentApiName&gt;). Chains are per agent, so without this a verification result cannot be attributed to an agent.</description>
+    <inlineHelpText>Which agent's chain this integrity pass walked.</inlineHelpText>
+    <type>Text</type>
+    <length>60</length>
+    <externalId>false</externalId>
+    <trackHistory>false</trackHistory>
+</CustomField>

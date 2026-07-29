@@ -1,0 +1,182 @@
+config:
+	developer_name: "Evidence_Engine"
+	agent_label: "Evidence Engine"
+	description: "Reasoning engine for Evidence: verify the chain, summarize a decision, assemble a bundle, flag anomalous autonomy, and answer questions from the ledger."
+	agent_type: "AgentforceEmployeeAgent"
+
+language:
+	default_locale: "en_US"
+
+system:
+	instructions: "You are the Evidence Engine. Every answer must be grounded in the recorded, hash-chained decision ledger. Separate observed facts from the agent's declared rationale and never invent a decision, an action, or a reason that is not on the record."
+	messages:
+		welcome: "Evidence Engine ready. I can verify the chain, summarize a decision, assemble a bundle, flag anomalous autonomy, or answer a ledger question."
+		error: "Something went wrong. Please try again."
+
+start_agent router:
+	label: "Router"
+	description: "Routes the request to the correct evidence capability."
+	reasoning:
+		instructions: ->
+			| Identify which capability the request needs and route to it.
+		actions:
+			go_to_verify_chain: @utils.transition to @topic.verify_chain
+			go_to_summarize_decision: @utils.transition to @topic.summarize_decision
+			go_to_assemble_bundle: @utils.transition to @topic.assemble_bundle
+			go_to_flag_anomalous_autonomy: @utils.transition to @topic.flag_anomalous_autonomy
+			go_to_answer_from_ledger: @utils.transition to @topic.answer_from_ledger
+
+topic verify_chain:
+	label: "Verify Chain"
+	description: "Run an on-demand integrity verification of a chain segment and report whether it is intact or broken."
+	actions:
+		Verify_Chain:
+			description: "Verify a chain segment and return the result"
+			inputs:
+				chainKey: string
+					description: "The chain to verify"
+					is_required: True
+					is_user_input: True
+				fromPosition: number
+					description: "First position in the segment"
+					is_required: False
+				toPosition: number
+					description: "Last position in the segment"
+					is_required: False
+			outputs:
+				result: string
+					description: "Intact or Break_Detected, with the break position if any"
+					is_used_by_planner: True
+			target: "apex://EvidenceChainService"
+	reasoning:
+		instructions: ->
+			| Verify the requested chain segment and report the result plainly.
+			| If a break is detected, state the position and treat it as serious.
+		actions:
+			back: @utils.transition to @topic.router
+
+topic summarize_decision:
+	label: "Summarize Decision"
+	description: "Produce a plain-language narrative of one specific decision using only recorded facts."
+	actions:
+		Summarize_Decision:
+			description: "Generate the narrative for a decision record"
+			inputs:
+				"Input:TargetDecision": string
+					description: "The decision record id to summarize"
+					is_required: True
+					is_user_input: True
+			outputs:
+				promptResponse: string
+					description: "The decision narrative"
+					is_used_by_planner: True
+					is_displayable: False
+			target: "generatePromptResponse://Evidence_Narrative_v1"
+	reasoning:
+		instructions: ->
+			| Summarize the requested decision from recorded facts only, keeping
+			| observed facts separate from the declared rationale.
+		actions:
+			back: @utils.transition to @topic.router
+
+topic assemble_bundle:
+	label: "Assemble Bundle"
+	description: "Conditionally assemble a draft evidence bundle for a matter and range, then seal it once verified."
+	actions:
+		Draft_Bundle:
+			description: "Create a draft bundle for a matter and range"
+			inputs:
+				matter: string
+					description: "The matter the bundle supports"
+					is_required: True
+					is_user_input: True
+			outputs:
+				bundleId: string
+					description: "The id of the drafted bundle"
+					is_used_by_planner: True
+			target: "apex://EvidenceBundleService"
+		Seal_Bundle:
+			description: "Verify the chain segment, compute the segment root hash and seal the bundle"
+			inputs:
+				bundleId: string
+					description: "The bundle to seal"
+					is_required: True
+			outputs:
+				segmentRootHash: string
+					description: "The computed segment root hash"
+					is_used_by_planner: True
+				internalStatus: string
+					description: "Internal seal status not shown to the user"
+					filter_from_agent: True
+			target: "apex://EvidenceBundleService"
+	reasoning:
+		instructions: ->
+			| First draft the bundle for the requested matter and range.
+			| Only after a draft exists, run the seal step.
+			| Report the sealed bundle and its segment root hash.
+		actions:
+			run seal_step: @actions.Seal_Bundle
+			back: @utils.transition to @topic.router
+
+topic flag_anomalous_autonomy:
+	label: "Flag Anomalous Autonomy"
+	description: "Surface decisions where a high-consequence action was taken with full autonomy and no approver."
+	actions:
+		Find_Anomalous_Autonomy:
+			description: "Query the ledger for high-consequence, fully autonomous decisions"
+			inputs:
+				agentApiName: string
+					description: "Restrict to one agent, or leave blank for all"
+					is_required: False
+					is_user_input: True
+			outputs:
+				decisions: string
+					description: "Matching decisions, already redacted for the running user"
+					is_used_by_planner: True
+			target: "apex://EvidenceLedgerService"
+	reasoning:
+		instructions: ->
+			| Return the decisions that acted alone at high consequence.
+			| State the count and do not editorialize beyond what the records show.
+		actions:
+			back: @utils.transition to @topic.router
+
+topic answer_from_ledger:
+	label: "Answer From Ledger"
+	description: "Answer a natural language question about agent decisions using only the recorded ledger."
+	actions:
+		Resolve_Query:
+			description: "Translate the question into an index-compatible ledger query"
+			inputs:
+				"Input:question": string
+					description: "The user's question"
+					is_required: True
+					is_user_input: True
+			outputs:
+				promptResponse: string
+					description: "Structured LedgerQuery JSON"
+					is_used_by_planner: True
+					is_displayable: False
+			target: "generatePromptResponse://Evidence_Ledger_Query_v1"
+		Run_Ledger_Query:
+			description: "Execute the resolved query against the decision ledger"
+			inputs:
+				query_json: string
+					description: "Structured LedgerQuery"
+					is_required: True
+			outputs:
+				decisions: string
+					description: "Matching decisions, already redacted for the running user"
+					is_used_by_planner: True
+			target: "apex://EvidenceLedgerService"
+	reasoning:
+		instructions: ->
+			| Translate the question into a ledger query, then run it.
+			| Answer only from what Run_Ledger_Query returned.
+			| Never infer a decision that is not in the result set, and never
+			| describe an agent's reasoning beyond the declared rationale on
+			| the record. If the result set is empty, say the ledger holds no
+			| matching decisions rather than speculating.
+			| Always state the count you are answering from.
+		actions:
+			back: @utils.transition to @topic.router

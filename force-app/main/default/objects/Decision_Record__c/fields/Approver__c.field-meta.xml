@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Approver__c</fullName>
+    <label>Approver</label>
+    <description>The human who approved the decision, if human approval was required.</description>
+    <inlineHelpText>Who approved the decision. Blank when no human approval was required.</inlineHelpText>
+    <type>Lookup</type>
+    <referenceTo>User</referenceTo>
+    <relationshipLabel>Decisions Approved</relationshipLabel>
+    <relationshipName>Decisions_Approved</relationshipName>
+    <deleteConstraint>SetNull</deleteConstraint>
+</CustomField>

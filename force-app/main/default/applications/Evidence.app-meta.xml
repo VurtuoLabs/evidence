@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomApplication xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label>Evidence</label>
+    <description>Agent decision record. Observed and declared, chained and anchored.</description>
+    <brand>
+        <headerColor>#6D28D9</headerColor>
+        <shouldOverrideOrgTheme>false</shouldOverrideOrgTheme>
+    </brand>
+    <formFactors>Large</formFactors>
+    <navType>Standard</navType>
+    <uiBundle>c__evidenceUi</uiBundle>
+    <uiType>Lightning</uiType>
+</CustomApplication>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <label>SR 11-7</label>
+    <protected>false</protected>
+    <values>
+        <field>Control_Key__c</field>
+        <value xsi:type="xsd:string">SR_11_7</value>
+    </values>
+    <values>
+        <field>Framework__c</field>
+        <value xsi:type="xsd:string">Federal Reserve SR 11-7</value>
+    </values>
+    <values>
+        <field>Control_Reference__c</field>
+        <value xsi:type="xsd:string">Model Risk Management</value>
+    </values>
+    <values>
+        <field>Control_Label__c</field>
+        <value xsi:type="xsd:string">Effective challenge and ongoing monitoring of model outputs</value>
+    </values>
+    <values>
+        <field>Satisfied_By__c</field>
+        <value xsi:type="xsd:string">Model_Version__c and Prompt_Template_Version__c on Rationale__c, plus Consideration__c options weighed with confidence scores, give model risk teams a record of what each model version decided and the alternatives it rejected.</value>
+    </values>
+    <values>
+        <field>Evidence_Query_JSON__c</field>
+        <value xsi:type="xsd:string">{"view":"ALL_DECISIONS","groupBy":"Model_Version__c"}</value>
+    </values>
+    <values>
+        <field>Active__c</field>
+        <value xsi:type="xsd:boolean">true</value>
+    </values>
+</CustomMetadata>

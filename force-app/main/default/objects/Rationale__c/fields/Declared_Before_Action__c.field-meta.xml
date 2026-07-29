@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Declared_Before_Action__c</fullName>
+    <label>Declared Before Action</label>
+    <description>True when the rationale was captured before the consequential action fired. A post-hoc rationale is a materially weaker evidentiary artifact and the UI flags it.</description>
+    <inlineHelpText>Whether the agent declared this reasoning before it acted.</inlineHelpText>
+    <type>Checkbox</type>
+    <defaultValue>false</defaultValue>
+</CustomField>

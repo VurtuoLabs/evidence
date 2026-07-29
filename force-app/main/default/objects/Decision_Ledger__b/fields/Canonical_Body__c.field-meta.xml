@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Canonical_Body__c</fullName>
+    <label>Canonical Body</label>
+    <description>The full key-sorted canonical JSON that was hashed. FLS-restricted. May be redacted while the hash stays in place.</description>
+    <type>LongTextArea</type>
+    <length>131072</length>
+    <visibleLines>10</visibleLines>
+</CustomField>

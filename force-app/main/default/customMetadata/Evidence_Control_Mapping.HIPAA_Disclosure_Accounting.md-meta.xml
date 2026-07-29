@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <label>HIPAA Disclosure Accounting</label>
+    <protected>false</protected>
+    <values>
+        <field>Control_Key__c</field>
+        <value xsi:type="xsd:string">HIPAA_DISCLOSURE_ACCOUNTING</value>
+    </values>
+    <values>
+        <field>Framework__c</field>
+        <value xsi:type="xsd:string">HIPAA</value>
+    </values>
+    <values>
+        <field>Control_Reference__c</field>
+        <value xsi:type="xsd:string">45 CFR 164.528</value>
+    </values>
+    <values>
+        <field>Control_Label__c</field>
+        <value xsi:type="xsd:string">Accounting of disclosures of protected health information</value>
+    </values>
+    <values>
+        <field>Satisfied_By__c</field>
+        <value xsi:type="xsd:string">Subject_Reference__c and Sources_Read__c on each Decision_Record__c, together with the Evidence_Access__e access-audit chain, account for every read and disclosure of subject data by the agent and by the evidence system itself.</value>
+    </values>
+    <values>
+        <field>Evidence_Query_JSON__c</field>
+        <value xsi:type="xsd:string">{"view":"ALL_DECISIONS","hasSubjectReference":true,"includeAccessLog":true}</value>
+    </values>
+    <values>
+        <field>Active__c</field>
+        <value xsi:type="xsd:boolean">true</value>
+    </values>
+</CustomMetadata>

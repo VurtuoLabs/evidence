@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <label>Billing Adjustment</label>
+    <protected>false</protected>
+    <values>
+        <field>Rule_Key__c</field>
+        <value xsi:type="xsd:string">BILLING_ADJUSTMENT</value>
+    </values>
+    <values>
+        <field>Match_Strategy__c</field>
+        <value xsi:type="xsd:string">Action_Name</value>
+    </values>
+    <values>
+        <field>Match_Value__c</field>
+        <value xsi:type="xsd:string">Adjust_*</value>
+    </values>
+    <values>
+        <field>Consequence_Level__c</field>
+        <value xsi:type="xsd:string">Medium</value>
+    </values>
+    <values>
+        <field>Priority__c</field>
+        <value xsi:type="xsd:double">40.0</value>
+    </values>
+    <values>
+        <field>Active__c</field>
+        <value xsi:type="xsd:boolean">true</value>
+    </values>
+</CustomMetadata>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Confidence__c</fullName>
+    <label>Confidence</label>
+    <description>The agent's declared confidence in this rationale, 0 to 1.</description>
+    <inlineHelpText>Declared confidence score from 0.00 to 1.00.</inlineHelpText>
+    <type>Number</type>
+    <precision>3</precision>
+    <scale>2</scale>
+</CustomField>

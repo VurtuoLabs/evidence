@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>Queryable index into the hash-chained decision ledger. Private OWD; access comes from Apex managed sharing scoped to a matter, from View All on Evidence_Auditor, and from the integration owner. Contains subject references and is the record the console reads via GraphQL.</description>
+    <enableActivities>true</enableActivities>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <label>Decision Record</label>
+    <nameField>
+        <displayFormat>D-{0000000}</displayFormat>
+        <label>Decision Number</label>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Decision Records</pluralLabel>
+    <sharingModel>Private</sharingModel>
+    <sharingReasons>
+        <fullName>Evidence_Matter_Team__c</fullName>
+        <label>Evidence Matter Team</label>
+    </sharingReasons>
+</CustomObject>

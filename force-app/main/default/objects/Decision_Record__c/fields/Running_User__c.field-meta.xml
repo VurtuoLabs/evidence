@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Running_User__c</fullName>
+    <label>Running User</label>
+    <description>The user context the agent ran as when it made the decision.</description>
+    <inlineHelpText>Who the decision ran as.</inlineHelpText>
+    <type>Lookup</type>
+    <referenceTo>User</referenceTo>
+    <relationshipLabel>Decisions Run</relationshipLabel>
+    <relationshipName>Decisions_Run</relationshipName>
+    <deleteConstraint>SetNull</deleteConstraint>
+</CustomField>

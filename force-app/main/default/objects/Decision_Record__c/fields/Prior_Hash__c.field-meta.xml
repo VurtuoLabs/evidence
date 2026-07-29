@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Prior_Hash__c</fullName>
+    <label>Prior Hash</label>
+    <description>SHA-256 hex digest of the preceding link in the same chain. Empty for chain position 0.</description>
+    <inlineHelpText>The hash of the previous decision in the chain.</inlineHelpText>
+    <type>Text</type>
+    <length>128</length>
+</CustomField>

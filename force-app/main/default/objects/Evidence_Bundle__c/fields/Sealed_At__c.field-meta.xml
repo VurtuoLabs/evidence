@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Sealed_At__c</fullName>
+    <label>Sealed At</label>
+    <description>When the bundle was sealed and its chain proof generated.</description>
+    <inlineHelpText>The time this bundle was sealed.</inlineHelpText>
+    <type>DateTime</type>
+</CustomField>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Subject_Object__c</fullName>
+    <label>Subject Object</label>
+    <description>API name of the object the subject reference points to, e.g. Claim or Account.</description>
+    <inlineHelpText>The Salesforce object type the decision's subject belongs to.</inlineHelpText>
+    <type>Text</type>
+    <length>255</length>
+</CustomField>

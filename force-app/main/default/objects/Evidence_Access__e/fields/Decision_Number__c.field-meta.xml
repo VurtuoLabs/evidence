@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Decision_Number__c</fullName>
+    <label>Decision Number</label>
+    <description>The Decision_Record__c number that was read.</description>
+    <type>Text</type>
+    <length>40</length>
+</CustomField>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Bundle_Number__c</fullName>
+    <label>Bundle Number</label>
+    <description>Human-readable identifier for the evidence bundle, cited on delivery to outside counsel. CONTRACT.md sec 4.</description>
+    <inlineHelpText>The reference used when a sealed bundle is delivered.</inlineHelpText>
+    <type>AutoNumber</type>
+    <displayFormat>EB-{0000}</displayFormat>
+    <externalId>false</externalId>
+    <trackHistory>false</trackHistory>
+</CustomField>

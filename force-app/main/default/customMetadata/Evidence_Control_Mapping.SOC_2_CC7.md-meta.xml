@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <label>SOC 2 CC7</label>
+    <protected>false</protected>
+    <values>
+        <field>Control_Key__c</field>
+        <value xsi:type="xsd:string">SOC_2_CC7</value>
+    </values>
+    <values>
+        <field>Framework__c</field>
+        <value xsi:type="xsd:string">SOC 2</value>
+    </values>
+    <values>
+        <field>Control_Reference__c</field>
+        <value xsi:type="xsd:string">CC7.2 / CC7.3</value>
+    </values>
+    <values>
+        <field>Control_Label__c</field>
+        <value xsi:type="xsd:string">System operations: detection and response to anomalies</value>
+    </values>
+    <values>
+        <field>Satisfied_By__c</field>
+        <value xsi:type="xsd:string">Chain_Verification__c records and the flag_anomalous_autonomy topic provide continuous detection of ledger tampering and anomalous agent autonomy, with a documented response path via Evidence_Notify_Chain_Break_Flow.</value>
+    </values>
+    <values>
+        <field>Evidence_Query_JSON__c</field>
+        <value xsi:type="xsd:string">{"view":"HIGH_CONSEQUENCE","chainResult":"Break_Detected"}</value>
+    </values>
+    <values>
+        <field>Active__c</field>
+        <value xsi:type="xsd:boolean">true</value>
+    </values>
+</CustomMetadata>

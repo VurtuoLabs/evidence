@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Redaction_Profile__c</fullName>
+    <label>Redaction Profile</label>
+    <description>Which Evidence_Redaction_Rule__mdt profile was applied when the bundle was exported.</description>
+    <inlineHelpText>The redaction profile applied to this bundle's export.</inlineHelpText>
+    <type>Text</type>
+    <length>255</length>
+</CustomField>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Links_Checked__c</fullName>
+    <label>Links Checked</label>
+    <description>Number of chain links recomputed and compared in this pass.</description>
+    <type>Number</type>
+    <precision>18</precision>
+    <scale>0</scale>
+</CustomField>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Under_Legal_Hold__c</fullName>
+    <label>Under Legal Hold</label>
+    <description>True when an active Legal_Hold__c covers this decision, which blocks retention purge.</description>
+    <inlineHelpText>Whether a legal hold currently protects this decision from purge.</inlineHelpText>
+    <type>Checkbox</type>
+    <defaultValue>false</defaultValue>
+</CustomField>

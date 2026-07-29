@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Control_Label__c</fullName>
+    <label>Control Label</label>
+    <description>Human-readable name of the control, e.g. Auto-deny ceiling.</description>
+    <inlineHelpText>The readable name of the control.</inlineHelpText>
+    <type>Text</type>
+    <length>255</length>
+</CustomField>

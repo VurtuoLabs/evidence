@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Terminal_Hash__c</fullName>
+    <label>Terminal Hash</label>
+    <description>This_Hash of the last link in the chain as of the anchor date.</description>
+    <type>Text</type>
+    <length>128</length>
+</CustomField>

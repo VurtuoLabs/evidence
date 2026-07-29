@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Decision_Record__c</fullName>
+    <label>Decision Record</label>
+    <description>The decision included in the bundle by this item.</description>
+    <inlineHelpText>The decision this bundle item points to.</inlineHelpText>
+    <type>Lookup</type>
+    <referenceTo>Decision_Record__c</referenceTo>
+    <relationshipLabel>Bundle Items</relationshipLabel>
+    <relationshipName>Bundle_Items</relationshipName>
+    <deleteConstraint>Restrict</deleteConstraint>
+</CustomField>

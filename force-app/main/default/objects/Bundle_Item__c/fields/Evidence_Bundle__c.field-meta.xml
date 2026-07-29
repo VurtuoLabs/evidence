@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Evidence_Bundle__c</fullName>
+    <label>Evidence Bundle</label>
+    <description>The bundle this item belongs to.</description>
+    <type>MasterDetail</type>
+    <referenceTo>Evidence_Bundle__c</referenceTo>
+    <relationshipLabel>Bundle Items</relationshipLabel>
+    <relationshipName>Bundle_Items</relationshipName>
+    <reparentableMasterDetail>false</reparentableMasterDetail>
+</CustomField>

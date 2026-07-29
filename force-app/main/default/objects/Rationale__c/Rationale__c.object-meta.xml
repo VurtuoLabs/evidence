@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>Declared reasoning for a decision, structured. Master-detail child of Decision_Record__c. Whether the rationale was declared before the action is load-bearing and shown in the UI.</description>
+    <enableActivities>false</enableActivities>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <label>Rationale</label>
+    <nameField>
+        <displayFormat>RA-{000000}</displayFormat>
+        <label>Rationale Number</label>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Rationales</pluralLabel>
+    <sharingModel>ControlledByParent</sharingModel>
+</CustomObject>

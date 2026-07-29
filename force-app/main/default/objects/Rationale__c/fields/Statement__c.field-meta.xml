@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Statement__c</fullName>
+    <label>Statement</label>
+    <description>The agent's own account of why it chose this. Declared, not observed. FLS-restricted to holders of Evidence_View_Rationale.</description>
+    <inlineHelpText>The agent's stated reasoning. This is a declared account, not a computation trace.</inlineHelpText>
+    <type>LongTextArea</type>
+    <length>32768</length>
+    <visibleLines>5</visibleLines>
+</CustomField>
