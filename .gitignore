@@ -1,0 +1,24 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+.vite/
+
+# Test / coverage
+coverage/
+*.tsbuildinfo
+
+# Salesforce CLI
+.sf/
+.sfdx/
+
+# Logs
+*.log
+
+# OS / editor
+.DS_Store
+.idea/
+.vscode/
+
+.claude/
