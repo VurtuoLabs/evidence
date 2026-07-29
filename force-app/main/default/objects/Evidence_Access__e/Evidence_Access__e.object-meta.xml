@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>Auditing the auditors. Published whenever a read through EvidenceLedgerService returns subject data. See CONTRACT.md sec 8.6.</description>
+    <eventType>HighVolume</eventType>
+    <label>Evidence Access</label>
+    <pluralLabel>Evidence Accesses</pluralLabel>
+    <publishBehavior>PublishAfterCommit</publishBehavior>
+</CustomObject>

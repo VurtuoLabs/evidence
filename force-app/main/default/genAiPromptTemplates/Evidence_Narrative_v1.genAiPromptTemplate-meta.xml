@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenAiPromptTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <developerName>Evidence_Narrative_v1</developerName>
+    <masterLabel>Evidence Narrative v1</masterLabel>
+    <type>einstein_gpt__flex</type>
+    <templateVersions>
+        <content>Write a plain-language narrative of a single agent decision for a compliance reader, using only the recorded facts below.
+
+Decision: {!$Input:TargetDecision.Headline__c}
+Agent: {!$Input:TargetDecision.Agent_API_Name__c} (version {!$Input:TargetDecision.Agent_Version__c})
+Occurred: {!$Input:TargetDecision.Occurred_At__c}
+Outcome: {!$Input:TargetDecision.Outcome__c}
+Autonomy: {!$Input:TargetDecision.Autonomy_Level__c}
+Consequence: {!$Input:TargetDecision.Consequence_Level__c}
+What it did: {!$Input:TargetDecision.Actions_Taken__c}
+What it read: {!$Input:TargetDecision.Sources_Read__c}
+
+Additional context:
+{!$Input:AdditionalContext}
+
+Rules:
+- Separate Observed facts from the Declared rationale. Never present the declared rationale as a computation trace.
+- Do not invent actions, sources, approvals or reasoning that are not in the fields above.
+- If the rationale was captured after the action rather than before, say so plainly.
+- Keep it to a short factual paragraph an auditor can trust.</content>
+        <inputs>
+            <apiName>TargetDecision</apiName>
+            <definition>SOBJECT://Decision_Record__c</definition>
+            <masterLabel>Target Decision</masterLabel>
+            <referenceName>Input:TargetDecision</referenceName>
+            <required>true</required>
+        </inputs>
+        <inputs>
+            <apiName>AdditionalContext</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>Additional Context</masterLabel>
+            <referenceName>Input:AdditionalContext</referenceName>
+            <required>false</required>
+        </inputs>
+        <primaryModel>sfdc_ai__DefaultAnthropic</primaryModel>
+        <status>Published</status>
+    </templateVersions>
+</GenAiPromptTemplate>

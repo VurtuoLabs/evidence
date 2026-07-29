@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Issued_By__c</fullName>
+    <label>Issued By</label>
+    <description>The custodian who issued this hold.</description>
+    <type>Lookup</type>
+    <referenceTo>User</referenceTo>
+    <relationshipLabel>Legal Holds Issued</relationshipLabel>
+    <relationshipName>Legal_Holds_Issued</relationshipName>
+    <deleteConstraint>SetNull</deleteConstraint>
+</CustomField>

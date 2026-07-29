@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Control_Key__c</fullName>
+    <label>Control Key</label>
+    <description>Stable key of the control that was evaluated, matched against Evidence_Control_Mapping__mdt.</description>
+    <inlineHelpText>The identifier of the control that fired.</inlineHelpText>
+    <type>Text</type>
+    <length>255</length>
+</CustomField>

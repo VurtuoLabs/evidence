@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Redaction_State__c</fullName>
+    <label>Redaction State</label>
+    <description>Current redaction status of this decision's body. Redacted bodies keep their hash so the chain still verifies.</description>
+    <inlineHelpText>Whether this decision's body has been redacted.</inlineHelpText>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>None</fullName>
+                <default>true</default>
+                <label>None</label>
+            </value>
+            <value>
+                <fullName>Partial</fullName>
+                <default>false</default>
+                <label>Partial</label>
+            </value>
+            <value>
+                <fullName>Redacted</fullName>
+                <default>false</default>
+                <label>Redacted</label>
+            </value>
+            <value>
+                <fullName>Body_Redacted</fullName>
+                <default>false</default>
+                <label>Body Redacted</label>
+            </value>
+            <value>
+                <fullName>Purged</fullName>
+                <default>false</default>
+                <label>Purged</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

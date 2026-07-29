@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <label>EU AI Act Art. 12</label>
+    <protected>false</protected>
+    <values>
+        <field>Control_Key__c</field>
+        <value xsi:type="xsd:string">EU_AI_ACT_ART_12</value>
+    </values>
+    <values>
+        <field>Framework__c</field>
+        <value xsi:type="xsd:string">EU AI Act</value>
+    </values>
+    <values>
+        <field>Control_Reference__c</field>
+        <value xsi:type="xsd:string">Article 12</value>
+    </values>
+    <values>
+        <field>Control_Label__c</field>
+        <value xsi:type="xsd:string">Record-keeping and automatic logging over the lifetime of the system</value>
+    </values>
+    <values>
+        <field>Satisfied_By__c</field>
+        <value xsi:type="xsd:string">Append-only, hash-chained Decision_Ledger__b with per-agent chains and daily Chain_Anchor__b terminal hashes provides automatic, tamper-evident logging of every agent decision over the system lifetime.</value>
+    </values>
+    <values>
+        <field>Evidence_Query_JSON__c</field>
+        <value xsi:type="xsd:string">{"view":"ALL_DECISIONS","includeChainProof":true}</value>
+    </values>
+    <values>
+        <field>Active__c</field>
+        <value xsi:type="xsd:boolean">true</value>
+    </values>
+</CustomMetadata>

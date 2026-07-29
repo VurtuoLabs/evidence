@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Taken__c</fullName>
+    <label>Taken</label>
+    <description>True for the option the agent actually chose.</description>
+    <inlineHelpText>Whether this is the option the agent took.</inlineHelpText>
+    <type>Checkbox</type>
+    <defaultValue>false</defaultValue>
+</CustomField>

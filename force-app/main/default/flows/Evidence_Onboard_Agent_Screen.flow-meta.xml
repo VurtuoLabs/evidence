@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>61.0</apiVersion>
+    <description>Screen flow. Setup wizard: pick an agent, choose a capture policy, set consequence rules and verify the tap fires.</description>
+    <environments>Default</environments>
+    <interviewLabel>Evidence Onboard Agent {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Evidence Onboard Agent Screen</label>
+    <processType>Flow</processType>
+    <status>Active</status>
+    <formulas>
+        <name>Onboard_Summary</name>
+        <dataType>String</dataType>
+        <expression>"Agent '" &amp; {!agentApiNameInput} &amp; "' onboarded with capture policy '" &amp; {!capturePolicyInput} &amp; "'. Verify the tap by triggering one monitored turn."</expression>
+    </formulas>
+    <assignments>
+        <name>Set_Result_Message</name>
+        <label>Set Result Message</label>
+        <locationX>176</locationX>
+        <locationY>278</locationY>
+        <assignmentItems>
+            <assignToReference>resultMessage</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Onboard_Summary</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Verify_Tap</targetReference>
+        </connector>
+    </assignments>
+    <screens>
+        <name>Agent_Setup</name>
+        <label>Agent Setup</label>
+        <locationX>176</locationX>
+        <locationY>158</locationY>
+        <allowBack>true</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>false</allowPause>
+        <connector>
+            <targetReference>Set_Result_Message</targetReference>
+        </connector>
+        <fields>
+            <name>Intro</name>
+            <fieldText>&lt;p&gt;Onboard an agent for evidence capture. Choose the capture volume and the consequence level that triggers a required rationale.&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <fields>
+            <name>agentApiNameInput</name>
+            <dataType>String</dataType>
+            <fieldText>Agent API Name</fieldText>
+            <fieldType>InputField</fieldType>
+            <isRequired>true</isRequired>
+        </fields>
+        <fields>
+            <name>capturePolicyInput</name>
+            <dataType>String</dataType>
+            <fieldText>Capture Policy Key</fieldText>
+            <fieldType>InputField</fieldType>
+            <isRequired>true</isRequired>
+        </fields>
+        <fields>
+            <name>requireRationaleInput</name>
+            <dataType>Boolean</dataType>
+            <fieldText>Require Rationale Before High-Consequence Actions</fieldText>
+            <fieldType>InputField</fieldType>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>true</showHeader>
+    </screens>
+    <screens>
+        <name>Verify_Tap</name>
+        <label>Verify Tap</label>
+        <locationX>176</locationX>
+        <locationY>398</locationY>
+        <allowBack>true</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>false</allowPause>
+        <fields>
+            <name>Confirmation</name>
+            <fieldText>&lt;p&gt;{!resultMessage}&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>true</showHeader>
+    </screens>
+    <start>
+        <locationX>50</locationX>
+        <locationY>50</locationY>
+        <connector>
+            <targetReference>Agent_Setup</targetReference>
+        </connector>
+    </start>
+    <variables>
+        <name>resultMessage</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+</Flow>

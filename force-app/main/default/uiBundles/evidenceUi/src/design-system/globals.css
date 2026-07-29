@@ -1,0 +1,196 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*
+ * Evidence design tokens (CONTRACT §12.6, mirrored in docs/console-mockup.jsx).
+ *
+ * Ink neutrals with a faint violet cast and a violet primary - deliberately
+ * off the SLDS blue so the record reads as a formal ledger, not a dashboard.
+ * Autonomy is the product's signature metric, so violet leads. Every value is
+ * `H S% L%` (no wrapper) so Tailwind can compose them as
+ * `hsl(var(--token) / <alpha-value>)`.
+ *
+ * Reference hexes: primary #6D28D9 · primary-dark #4C1D95 · accent #A855F7 ·
+ * autonomy #7C3AED · success #2E844A · warning #014486 · error #B91C1C ·
+ * page #F5F3F8 · surface #FFFFFF · border #E7E2EE · text #1C1626.
+ */
+
+:root {
+  /* Surfaces + text */
+  --background: 0 0% 100%; /* page #FFFFFF */
+  --foreground: 263 27% 12%; /* text #1C1626 */
+  --card: 0 0% 100%; /* surface #FFFFFF */
+  --card-foreground: 263 27% 12%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 263 27% 12%;
+
+  /* Primary - violet leads */
+  --primary: 263 70% 50%; /* #6D28D9 */
+  --primary-dark: 263 67% 35%; /* #4C1D95 */
+  --primary-foreground: 0 0% 100%;
+
+  /* Secondary + muted (violet-tinted neutrals) */
+  --secondary: 264 26% 94%;
+  --secondary-foreground: 263 27% 18%;
+  --muted: 264 24% 93%;
+  --muted-foreground: 262 10% 42%; /* weak #5B5468 */
+
+  /* Accent + autonomy */
+  --accent: 271 91% 65%; /* #A855F7 */
+  --accent-foreground: 0 0% 100%;
+  --autonomy: 262 83% 58%; /* #7C3AED */
+
+  /* Semantics */
+  --success: 140 48% 35%; /* #2E844A */
+  --success-foreground: 0 0% 100%;
+  --warning: 210 94% 26%; /* #014486 */
+  --warning-foreground: 0 0% 100%;
+  --destructive: 0 74% 42%; /* #B91C1C */
+  --destructive-foreground: 0 0% 100%;
+
+  /* Provenance - the product's core distinction (§1) */
+  --observed: 262 10% 53%; /* weakest, neutral */
+  --declared: 210 94% 26%; /* deep blue - never neutral */
+
+  /* Lines + focus */
+  --border: 265 26% 91%; /* #E7E2EE */
+  --border-strong: 265 23% 81%; /* #CDC4DA */
+  --input: 265 26% 91%;
+  --ring: 263 70% 50%;
+
+  --radius: 4px; /* CONTRACT §12.6 */
+}
+
+.dark {
+  --background: 263 30% 8%;
+  --foreground: 264 30% 95%;
+  --card: 263 26% 11%;
+  --card-foreground: 264 30% 95%;
+  --popover: 263 26% 11%;
+  --popover-foreground: 264 30% 95%;
+
+  --primary: 262 83% 66%; /* lift the violet for contrast on dark */
+  --primary-dark: 263 67% 45%;
+  --primary-foreground: 263 40% 10%;
+
+  --secondary: 263 20% 18%;
+  --secondary-foreground: 264 24% 90%;
+  --muted: 263 18% 18%;
+  --muted-foreground: 262 12% 66%;
+
+  --accent: 271 85% 72%;
+  --accent-foreground: 263 40% 10%;
+  --autonomy: 262 80% 70%;
+
+  --success: 140 45% 52%;
+  --success-foreground: 263 40% 10%;
+  --warning: 210 90% 62%;
+  --warning-foreground: 263 40% 10%;
+  --destructive: 0 72% 60%;
+  --destructive-foreground: 263 40% 10%;
+
+  --observed: 262 12% 62%;
+  --declared: 210 90% 64%;
+
+  --border: 263 18% 22%;
+  --border-strong: 263 16% 32%;
+  --input: 263 18% 22%;
+  --ring: 262 83% 66%;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html,
+  body,
+  #root {
+    height: 100%;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: "Inter", -apple-system, system-ui, Arial, sans-serif;
+    font-feature-settings:
+      "cv11",
+      "ss01";
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  /* Inter everywhere - display headings, KPI numerals, hashes, and scores all
+     share the body face. No serif, no monospace break. */
+  .font-display,
+  h1,
+  h2 {
+    font-family: "Inter", -apple-system, system-ui, Arial, sans-serif;
+  }
+
+  .font-mono,
+  code,
+  kbd {
+    font-family: "Inter", -apple-system, system-ui, Arial, sans-serif;
+    font-variant-numeric: tabular-nums;
+  }
+
+  :focus-visible {
+    outline: 2px solid hsl(var(--ring));
+    outline-offset: 2px;
+  }
+}
+
+@layer utilities {
+  /* Thin, quiet scrollbars for the record surfaces. */
+  .evidence-scroll {
+    scrollbar-width: thin;
+    scrollbar-color: hsl(var(--border-strong)) transparent;
+  }
+  .evidence-scroll::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  .evidence-scroll::-webkit-scrollbar-thumb {
+    background-color: hsl(var(--border-strong));
+    border-radius: 99px;
+  }
+  .evidence-scroll::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  /* Chart line draw-in, gated behind prefers-reduced-motion in the chart itself. */
+  @keyframes evidence-draw {
+    from {
+      stroke-dashoffset: 2400;
+    }
+    to {
+      stroke-dashoffset: 0;
+    }
+  }
+
+  /* The dashboard's chart/breakdown split collapses to one column before the
+     donut card gets too narrow to read its legend rows. */
+  @media (max-width: 1100px) {
+    .evidence-dash-split {
+      grid-template-columns: minmax(0, 1fr) !important;
+    }
+  }
+
+  /* cmdk marks the keyboard-highlighted row with data-selected; it ships no
+     styles of its own, so this is the only visual feedback arrow-key users get. */
+  [cmdk-item][data-selected="true"] {
+    background: hsl(var(--secondary));
+  }
+  [cmdk-item]:active {
+    background: hsl(var(--muted));
+  }
+
+  /* cmdk's overlay takes a className, not a style prop. */
+  .evidence-cmdk-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(28, 22, 38, 0.32);
+    z-index: 90;
+  }
+}

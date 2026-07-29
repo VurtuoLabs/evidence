@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>This_Hash__c</fullName>
+    <label>This Hash</label>
+    <description>SHA-256 hex digest of this ledger link's canonical body. Mirrors Decision_Ledger__b.This_Hash__c.</description>
+    <inlineHelpText>The hash of this decision in the chain.</inlineHelpText>
+    <type>Text</type>
+    <length>128</length>
+</CustomField>

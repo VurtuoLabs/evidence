@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Matter__c</fullName>
+    <label>Matter</label>
+    <description>The matter or case this bundle serves, e.g. a discovery request or an audit.</description>
+    <inlineHelpText>The legal or audit matter this bundle is assembled for.</inlineHelpText>
+    <type>Text</type>
+    <length>255</length>
+</CustomField>

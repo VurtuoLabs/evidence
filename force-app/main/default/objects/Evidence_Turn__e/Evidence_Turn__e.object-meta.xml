@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>Evidence-owned capture event, one per agent turn. Published PublishAfterCommit. See CONTRACT.md sec 3.</description>
+    <eventType>HighVolume</eventType>
+    <label>Evidence Turn</label>
+    <pluralLabel>Evidence Turns</pluralLabel>
+    <publishBehavior>PublishAfterCommit</publishBehavior>
+</CustomObject>

@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>61.0</apiVersion>
+    <description>Screen flow. Guided legal hold: matter, scope preview, effective date and confirmation.</description>
+    <environments>Default</environments>
+    <interviewLabel>Evidence Issue Legal Hold {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Evidence Issue Legal Hold Screen</label>
+    <processType>Flow</processType>
+    <status>Active</status>
+    <formulas>
+        <name>Hold_Summary</name>
+        <dataType>String</dataType>
+        <expression>"Legal hold on matter '" &amp; {!matterInput} &amp; "' effective " &amp; TEXT({!effectiveFromInput}) &amp; ". Scope: " &amp; {!scopeFilterInput}</expression>
+    </formulas>
+    <assignments>
+        <name>Set_Result_Message</name>
+        <label>Set Result Message</label>
+        <locationX>176</locationX>
+        <locationY>278</locationY>
+        <assignmentItems>
+            <assignToReference>resultMessage</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Hold_Summary</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Confirm_Hold</targetReference>
+        </connector>
+    </assignments>
+    <screens>
+        <name>Hold_Details</name>
+        <label>Hold Details</label>
+        <locationX>176</locationX>
+        <locationY>158</locationY>
+        <allowBack>true</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>false</allowPause>
+        <connector>
+            <targetReference>Set_Result_Message</targetReference>
+        </connector>
+        <fields>
+            <name>Intro</name>
+            <fieldText>&lt;p&gt;Issue a legal hold to suspend purge for a matter. The scope filter determines exactly which decisions are held.&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <fields>
+            <name>matterInput</name>
+            <dataType>String</dataType>
+            <fieldText>Matter</fieldText>
+            <fieldType>InputField</fieldType>
+            <isRequired>true</isRequired>
+        </fields>
+        <fields>
+            <name>scopeFilterInput</name>
+            <dataType>String</dataType>
+            <fieldText>Scope Filter (JSON)</fieldText>
+            <fieldType>LargeTextArea</fieldType>
+            <isRequired>false</isRequired>
+        </fields>
+        <fields>
+            <name>effectiveFromInput</name>
+            <dataType>Date</dataType>
+            <fieldText>Effective From</fieldText>
+            <fieldType>InputField</fieldType>
+            <isRequired>true</isRequired>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>true</showHeader>
+    </screens>
+    <screens>
+        <name>Confirm_Hold</name>
+        <label>Confirm Hold</label>
+        <locationX>176</locationX>
+        <locationY>398</locationY>
+        <allowBack>true</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>false</allowPause>
+        <fields>
+            <name>Confirmation</name>
+            <fieldText>&lt;p&gt;{!resultMessage}&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>true</showHeader>
+    </screens>
+    <start>
+        <locationX>50</locationX>
+        <locationY>50</locationY>
+        <connector>
+            <targetReference>Hold_Details</targetReference>
+        </connector>
+    </start>
+    <variables>
+        <name>resultMessage</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+</Flow>

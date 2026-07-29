@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenAiPromptTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <developerName>Evidence_Ledger_Query_v1</developerName>
+    <masterLabel>Evidence Ledger Query v1</masterLabel>
+    <type>einstein_gpt__flex</type>
+    <templateVersions>
+        <content>You translate a natural language question about agent decisions into a single structured LedgerQuery JSON object that the Decision Ledger index can serve.
+
+Question:
+{!$Input:question}
+
+Rules:
+- Output ONLY a JSON object, no prose, no code fences.
+- Allowed keys: agentApiName (string), chainKey (string), consequenceLevel (one of Low, Medium, High), autonomyLevel (string), fromDate (ISO date), toDate (ISO date), view (one of ALL_DECISIONS, HIGH_CONSEQUENCE, ACTED_ALONE, OVERRIDDEN, UNDER_LEGAL_HOLD), limit (integer).
+- Omit any key you cannot infer from the question rather than guessing.
+- The Big Object index is queried in the order Chain_Key, then Chain_Position, then Ledger_Key, so prefer an agentApiName or chainKey filter whenever the question names an agent.
+- If the question cannot be expressed as a ledger query, return {"error":"UNSUPPORTED_QUERY"}.</content>
+        <inputs>
+            <apiName>question</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>Question</masterLabel>
+            <referenceName>Input:question</referenceName>
+            <required>true</required>
+        </inputs>
+        <primaryModel>sfdc_ai__DefaultAnthropic</primaryModel>
+        <status>Published</status>
+    </templateVersions>
+</GenAiPromptTemplate>

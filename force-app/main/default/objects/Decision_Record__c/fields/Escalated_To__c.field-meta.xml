@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Escalated_To__c</fullName>
+    <label>Escalated To</label>
+    <description>The queue or human target the decision was escalated to, if it was handed off.</description>
+    <inlineHelpText>Where the decision was escalated. Blank when not escalated.</inlineHelpText>
+    <type>Text</type>
+    <length>255</length>
+</CustomField>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Actions_Taken__c</fullName>
+    <label>Actions Taken</label>
+    <description>Observed list of actions the agent invoked, with inputs and outputs. Source for the What it did panel.</description>
+    <inlineHelpText>The actions the agent actually invoked during this decision.</inlineHelpText>
+    <type>LongTextArea</type>
+    <length>32768</length>
+    <visibleLines>5</visibleLines>
+</CustomField>

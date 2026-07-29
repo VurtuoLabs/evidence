@@ -1,0 +1,21 @@
+{
+  "name": "evidence",
+  "version": "1.0.0",
+  "description": "Evidence - a hash-chained, append-only agent decision ledger. Salesforce-native, React UI Bundle on Multi-Framework.",
+  "private": true,
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "auth": "bash scripts/auth.sh",
+    "deploy": "bash scripts/deploy.sh",
+    "deploy:check": "bash scripts/deploy.sh --check",
+    "ui:install": "npm --prefix force-app/main/default/uiBundles/evidenceUi install",
+    "ui:dev": "npm --prefix force-app/main/default/uiBundles/evidenceUi run dev",
+    "ui:build": "npm --prefix force-app/main/default/uiBundles/evidenceUi run build",
+    "ui:test": "npm --prefix force-app/main/default/uiBundles/evidenceUi run test",
+    "ui:lint": "npm --prefix force-app/main/default/uiBundles/evidenceUi run lint",
+    "apex:test": "sf apex run test --target-org evidence --code-coverage --result-format human --wait 30"
+  },
+  "license": "UNLICENSED"
+}

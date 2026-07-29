@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<UIBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <masterLabel>Evidence</masterLabel>
+    <description>Agent decision record. Observed and declared, chained and anchored.</description>
+    <isActive>true</isActive>
+    <version>1</version>
+    <target>CustomApplication</target>
+</UIBundle>

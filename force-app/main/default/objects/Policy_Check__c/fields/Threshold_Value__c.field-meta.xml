@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Threshold_Value__c</fullName>
+    <label>Threshold Value</label>
+    <description>The configured threshold the control checked against, stored as text to allow currency, percentage, or count values.</description>
+    <inlineHelpText>The limit the control tested against.</inlineHelpText>
+    <type>Text</type>
+    <length>255</length>
+</CustomField>

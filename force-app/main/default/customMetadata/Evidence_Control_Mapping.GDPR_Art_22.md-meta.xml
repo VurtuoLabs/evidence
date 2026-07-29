@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <label>GDPR Art. 22</label>
+    <protected>false</protected>
+    <values>
+        <field>Control_Key__c</field>
+        <value xsi:type="xsd:string">GDPR_ART_22</value>
+    </values>
+    <values>
+        <field>Framework__c</field>
+        <value xsi:type="xsd:string">GDPR</value>
+    </values>
+    <values>
+        <field>Control_Reference__c</field>
+        <value xsi:type="xsd:string">Article 22</value>
+    </values>
+    <values>
+        <field>Control_Label__c</field>
+        <value xsi:type="xsd:string">Automated individual decision-making, including profiling</value>
+    </values>
+    <values>
+        <field>Satisfied_By__c</field>
+        <value xsi:type="xsd:string">Autonomy_Level__c distinguishes solely-automated decisions, while the Declared Rationale__c and the OVERRIDDEN view evidence the logic involved and any human intervention required by the right not to be subject to solely automated decisions.</value>
+    </values>
+    <values>
+        <field>Evidence_Query_JSON__c</field>
+        <value xsi:type="xsd:string">{"view":"OVERRIDDEN","includeRationale":true}</value>
+    </values>
+    <values>
+        <field>Active__c</field>
+        <value xsi:type="xsd:boolean">true</value>
+    </values>
+</CustomMetadata>

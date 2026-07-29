@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Segment_Root_Hash__c</fullName>
+    <label>Segment Root Hash</label>
+    <description>Root hash computed over the sealed chain segment, the proof that the segment existed in this state at seal time.</description>
+    <inlineHelpText>The proof hash over the bundle's chain segment.</inlineHelpText>
+    <type>Text</type>
+    <length>128</length>
+</CustomField>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Decision_Record__c</fullName>
+    <label>Decision Record</label>
+    <description>The decision this option was weighed within.</description>
+    <type>MasterDetail</type>
+    <referenceTo>Decision_Record__c</referenceTo>
+    <relationshipLabel>Considerations</relationshipLabel>
+    <relationshipName>Considerations</relationshipName>
+    <reparentableMasterDetail>false</reparentableMasterDetail>
+</CustomField>

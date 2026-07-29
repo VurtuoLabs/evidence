@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Sources_Read__c</fullName>
+    <label>Sources Read</label>
+    <description>Observed list of records and knowledge the agent read, with relevance scores. Source for the What it read panel.</description>
+    <inlineHelpText>The grounding sources the agent read while making this decision.</inlineHelpText>
+    <type>LongTextArea</type>
+    <length>32768</length>
+    <visibleLines>5</visibleLines>
+</CustomField>

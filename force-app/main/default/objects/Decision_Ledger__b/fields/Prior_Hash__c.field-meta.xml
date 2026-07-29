@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Prior_Hash__c</fullName>
+    <label>Prior Hash</label>
+    <description>This_Hash of the preceding link in the chain. Empty at position 0.</description>
+    <type>Text</type>
+    <length>128</length>
+</CustomField>

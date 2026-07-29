@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Decision_Count__c</fullName>
+    <label>Decision Count</label>
+    <description>Number of decisions in the bundle, maintained as items are added.</description>
+    <inlineHelpText>How many decisions this bundle contains.</inlineHelpText>
+    <type>Number</type>
+    <precision>18</precision>
+    <scale>0</scale>
+</CustomField>

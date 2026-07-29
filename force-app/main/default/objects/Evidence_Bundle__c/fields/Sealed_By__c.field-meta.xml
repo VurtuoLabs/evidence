@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Sealed_By__c</fullName>
+    <label>Sealed By</label>
+    <description>The custodian who sealed the bundle. Requires Evidence_Seal_Bundle.</description>
+    <inlineHelpText>Who sealed this bundle.</inlineHelpText>
+    <type>Lookup</type>
+    <referenceTo>User</referenceTo>
+    <relationshipLabel>Bundles Sealed</relationshipLabel>
+    <relationshipName>Bundles_Sealed</relationshipName>
+    <deleteConstraint>SetNull</deleteConstraint>
+</CustomField>
