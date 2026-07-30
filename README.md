@@ -172,4 +172,4 @@ evidence/
 
 ## License
 
-MIT. Copyright (c) 2026 VurtuoLabs
+MIT. Copyright (c) 2026 VurtuoLabs. See [LICENSE](LICENSE).
