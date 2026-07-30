@@ -64,7 +64,7 @@ function makeDecision(overrides: Partial<DecisionDetailView> = {}): DecisionDeta
       statement: "The claim describes gradual seepage; exclusion EX-14 applies and confidence cleared the review threshold.",
       declaredAt: "2026-07-29T14:12:05.000Z",
       declaredBeforeAction: true,
-      modelVersion: "claude-x",
+      modelVersion: "model-x",
       promptTemplateVersion: "Evidence_Narrative_v1",
       confidence: 0.94,
     },
