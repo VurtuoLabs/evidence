@@ -170,6 +170,17 @@ evidence/
   docs/                           design notes
 ```
 
+## Screenshots
+
+Captured from a live org at a 1200px viewport.
+
+| | |
+|---|---|
+| ![Dashboard](docs/screenshots/01-dashboard.png) | ![Decision ledger](docs/screenshots/02-decision-ledger.png) |
+| **Dashboard.** What exactly did each agent do, and why. Volume, autonomy and override rate sit beside chain integrity, so the record's trustworthiness is never a separate question. | **Decision ledger.** Every decision with its consequence tier, autonomy, outcome and hash. Filters cover the four views an auditor actually asks for. |
+| ![Analysis](docs/screenshots/03-analysis.png) | ![Chain integrity](docs/screenshots/04-chain-integrity.png) |
+| **Analysis.** Autonomy over 30 days, decisions by agent, and why humans overrode. Override reasons are ranked because the top one is where to fix the agent. | **Chain integrity.** Verification passes recompute each hash and record the result. Daily anchors are the terminal hash per chain per day, the artifact handed to an auditor. |
+
 ## License
 
 MIT. Copyright (c) 2026 VurtuoLabs. See [LICENSE](LICENSE).
